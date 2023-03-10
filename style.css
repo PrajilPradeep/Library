@@ -3,38 +3,40 @@
   padding: 0;
   background-color: #81edae;
   box-sizing: border-box;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 body {
   height: 100vh;
-  margin: 0;
 }
 
 header {
   display: flex;
-  margin: 10px;
+  margin: 5px;
   text-align: center;
+  justify-content: space-between;
 }
 h1 {
   flex: 1;
-  padding: 5px 25px;
+  padding: 5px;
+  margin: 5px;
 }
 
 .login-button {
   background-color: black;
   color: white;
-  padding: 5px 25px;
+  padding: 5px;
   margin: 5px;
   width: 90px;
   text-align: center;
   border-radius: 15px;
 }
 
-ion-icon {
-  font-size: x-large;
-  padding: 5px 25px;
-  margin: 5px;
-  /* margin-top: 10px; */
+.header-icon {
+  display: flex;
+  align-items: center;
+}
+.material-symbols-sharp {
+  font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 48;
 }
 
 .library-info {
