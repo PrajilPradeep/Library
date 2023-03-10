@@ -30,12 +30,11 @@ h1 {
   border-radius: 15px;
 }
 
-.left-icon {
+ion-icon {
+  font-size: x-large;
   padding: 5px 25px;
   margin: 5px;
-}
-ion-icon {
-  font-size: large;
+  /* margin-top: 10px; */
 }
 
 .library-info {
