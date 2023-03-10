@@ -1,16 +1,25 @@
 * {
   margin: 0;
   padding: 0;
-  background-color: bisque;
+  background-color: #81edae;
   box-sizing: border-box;
   border: 2px solid red;
 }
 
 header {
   display: flex;
+  margin: 10px;
+  text-align: center;
 }
 h1 {
   flex: 1;
-  margin: 10px;
-  text-align: center;
+}
+
+.library-data {
+  display: flex;
+  height: 20px;
+  align-content: space-between;
+  border: 2px solid green;
+  padding: 20px;
+  margin: auto 30%;
 }
