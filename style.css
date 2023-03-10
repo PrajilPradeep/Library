@@ -15,6 +15,16 @@ h1 {
   flex: 1;
 }
 
+.login-button {
+  background-color: black;
+  color: white;
+  padding: 5px 25px;
+  margin: 5px;
+  width: 90px;
+  text-align: center;
+  border-radius: 15px;
+}
+
 .library-data {
   display: flex;
   height: 20px;
