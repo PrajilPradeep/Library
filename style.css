@@ -2,4 +2,15 @@
   margin: 0;
   padding: 0;
   background-color: bisque;
+  box-sizing: border-box;
+  border: 2px solid red;
+}
+
+header {
+  display: flex;
+}
+h1 {
+  flex: 1;
+  margin: 10px;
+  text-align: center;
 }
