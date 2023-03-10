@@ -29,6 +29,15 @@ Book.prototype.info = function () {
   );
 };
 
+// Fetching element to display the book info
+const bookInfoElement = document.querySelector(".book-info");
+
+function displayBooks() {
+  let libraryBookInfo = "";
+  myLibrary.map((book) => (libraryBookInfo += book.info() + "<br>"));
+  bookInfoElement.innerHTML = libraryBookInfo;
+}
+
 addNewBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
 addNewBookToLibrary("The Hobbit 2", "J.R.R. Tolkien", 295, false);
 
