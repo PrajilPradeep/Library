@@ -5,6 +5,10 @@
   box-sizing: border-box;
   border: 2px solid red;
 }
+body {
+  height: 100vh;
+  margin: 0;
+}
 
 header {
   display: flex;
@@ -34,11 +38,18 @@ ion-icon {
   font-size: large;
 }
 
-.library-data {
+.library-info {
   display: flex;
   height: 20px;
   align-content: space-between;
   border: 2px solid green;
   padding: 20px;
   margin: auto 30%;
+}
+
+section {
+  height: 80%;
+  background-color: white;
+  border-radius: 20px;
+  margin: 5px;
 }
