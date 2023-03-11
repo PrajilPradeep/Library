@@ -45,15 +45,20 @@ h1 {
 .library-info {
   display: flex;
   height: 20px;
-  align-content: space-between;
+  border-radius: 12px;
   border: 2px solid green;
-  padding: 20px;
-  margin: auto 30%;
+  padding: 15px;
+  width: 300px;
+  margin: 5px auto;
+  align-items: center;
+  justify-content: space-between;
 }
 
 section {
-  height: 80%;
+  height: 89%;
   background-color: white;
   border-radius: 20px;
   margin: 5px;
+  display: flex;
+  flex-direction: column;
 }
