@@ -3,7 +3,7 @@
   padding: 0;
   background-color: #81edae;
   box-sizing: border-box;
-  /* border: 2px solid red; */
+  border: 2px solid red;
 }
 body {
   height: 100vh;
@@ -14,26 +14,29 @@ header {
   margin: 5px;
   text-align: center;
   justify-content: space-between;
+  height: 8vh;
 }
 h1 {
+  font-size: 20px;
   flex: 1;
-  padding: 5px;
-  margin: 5px;
+  padding: 3px;
+  margin: 3px;
 }
 
 .login-button {
   background-color: black;
   color: white;
-  padding: 5px;
+  padding: 3px 20px;
   margin: 5px;
-  width: 90px;
   text-align: center;
   border-radius: 15px;
+  font-size: 10px;
 }
 
 .header-icon {
   display: flex;
   align-items: center;
+  padding: 3px 20px;
 }
 .material-symbols-sharp {
   font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 48;
