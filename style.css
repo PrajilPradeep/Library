@@ -3,7 +3,7 @@
   padding: 0;
   background-color: #81edae;
   box-sizing: border-box;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 body {
   height: 100vh;
@@ -46,7 +46,6 @@ h1 {
   display: flex;
   height: 20px;
   border-radius: 12px;
-  border: 2px solid green;
   padding: 15px;
   width: 300px;
   margin: 5px auto;
@@ -61,4 +60,9 @@ section {
   margin: 5px;
   display: flex;
   flex-direction: column;
+}
+
+.add-book {
+  padding: 5px 20px;
+  margin: 0px;
 }
