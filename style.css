@@ -5,8 +5,15 @@
   box-sizing: border-box;
   /* border: 2px solid red; */
 }
+
+@font-face {
+  font-family: "myCustomFont";
+  src: url(./Assets/fonts/FiraCode-VariableFont_wght.ttf);
+}
 body {
   height: 100vh;
+  font-family: "myCustomFont", system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 header {
