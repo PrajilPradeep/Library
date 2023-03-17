@@ -3,6 +3,7 @@
   padding: 0;
   background-color: #81edae;
   box-sizing: border-box;
+  color: #000000;
   /* border: 2px solid red; */
 }
 
@@ -14,6 +15,7 @@ body {
   height: 100vh;
   font-family: "myCustomFont", system-ui, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: #81edae;
 }
 
 header {
