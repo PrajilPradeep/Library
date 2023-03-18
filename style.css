@@ -106,3 +106,21 @@ label {
 input[type="checkbox"] {
   vertical-align: middle;
 }
+
+.book-info {
+  background-color: white;
+  display: flex;
+  margin: 2px;
+  flex-flow: row wrap;
+}
+
+.card {
+  background-color: #fba7a7;
+  margin: 10px;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.card * {
+  background-color: inherit;
+}

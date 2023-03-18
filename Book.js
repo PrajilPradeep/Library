@@ -13,11 +13,12 @@ function addNewBookToLibrary(title, author, noOfPages, hasRead) {
   let objName = title.replace(/\s+/g, "");
   objName = new Book(title, author, noOfPages, hasRead);
   myLibrary.push(objName);
+  makeCardForBook(objName);
 }
 
 // Adding function into the constructor to report book info
 Book.prototype.info = function () {
-  const readingStatus = this.hasRead ? "completed reading" : "not read yet";
+  const readingStatus = this.hasRead ? "Read" : "Unread";
   return (
     this.title +
     " by " +
@@ -33,15 +34,22 @@ Book.prototype.info = function () {
 const bookInfoElement = document.querySelector(".book-info");
 
 function displayBooks() {
-  let libraryBookInfo = "";
-  myLibrary.map((book) => (libraryBookInfo += book.info() + "<br>"));
-  bookInfoElement.innerHTML = libraryBookInfo;
+  myLibrary.map((book) => makeCardForBook(book));
 }
 
 addNewBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
-addNewBookToLibrary("The Hobbit 2", "J.R.R. Tolkien", 295, false);
+addNewBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 218, false);
+addNewBookToLibrary("To Kill a Mockingbird", "Harper Lee", 324, false);
+addNewBookToLibrary("Pride and Prejudice", "Jane Austen", 432, true);
+addNewBookToLibrary("The Catcher in the Rye", "J.D. Salinger", 224, true);
+addNewBookToLibrary(
+  "One Hundred Years of Solitude",
+  "Gabriel Garcia Marquez",
+  417,
+  true
+);
+addNewBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
 
-// console.log(theHobbit.info());
 displayBooks();
 
 const addNewBookBtn = document.querySelector(".add-book");
@@ -85,5 +93,34 @@ addNewBookForm.addEventListener("submit", (event) => {
   addNewBookToLibrary(title, author, noOfPages, hasRead);
   resetAddNewBookForm();
   hideAddNewBookForm();
-  displayBooks();
+  // displayBooks();
 });
+
+//Make Card for each book
+function makeCardForBook(book) {
+  const card = document.createElement("div");
+  card.classList.add("card");
+
+  const title = document.createElement("h2");
+  title.textContent = book.title;
+
+  card.appendChild(title);
+
+  const author = document.createElement("div");
+  author.textContent = `Author: ${book.author}`;
+
+  card.appendChild(author);
+
+  const noOf_Pages = document.createElement("p");
+  noOf_Pages.textContent = `Pages : ${book.noOfPages}`;
+
+  card.appendChild(noOf_Pages);
+
+  bookInfoElement.appendChild(card);
+
+  const readStatus = book.hasRead ? "Read" : "Unread";
+  const reading_status = document.createElement("p");
+  reading_status.textContent = `Status: ${readStatus}`;
+
+  card.appendChild(reading_status);
+}
