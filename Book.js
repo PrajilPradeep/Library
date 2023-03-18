@@ -57,6 +57,33 @@ document.addEventListener("click", (event) => {
     !addNewBookBtn.contains(event.target) &&
     !addNewBookForm.contains(event.target)
   ) {
-    addNewBookForm.classList.remove("visible");
+    resetAddNewBookForm();
+    hideAddNewBookForm();
   }
+});
+
+function hideAddNewBookForm() {
+  addNewBookForm.classList.remove("visible");
+}
+
+function resetAddNewBookForm() {
+  addNewBookForm.reset();
+}
+
+// To submit the book details through form
+
+addNewBookForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  //creating a new form object
+  const addBookFormData = new FormData(addNewBookForm);
+  let title = addBookFormData.get("book_title");
+  let author = addBookFormData.get("book_author");
+  let noOfPages = addBookFormData.get("no_of_pages");
+  let hasRead = addBookFormData.get("reading_status") === "on";
+
+  addNewBookToLibrary(title, author, noOfPages, hasRead);
+  resetAddNewBookForm();
+  hideAddNewBookForm();
+  displayBooks();
 });
