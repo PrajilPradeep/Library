@@ -1,5 +1,7 @@
 let myLibrary = [];
 
+displayBooks();
+
 function Book(title, author, noOfPages, hasRead) {
   this.title = title;
   this.author = author;
@@ -37,7 +39,7 @@ function displayBooks() {
   myLibrary.map((book) => makeCardForBook(book));
 }
 
-addNewBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
+addNewBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, false);
 addNewBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 218, false);
 addNewBookToLibrary("To Kill a Mockingbird", "Harper Lee", 324, false);
 addNewBookToLibrary("Pride and Prejudice", "Jane Austen", 432, true);
@@ -48,9 +50,6 @@ addNewBookToLibrary(
   417,
   true
 );
-addNewBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
-
-displayBooks();
 
 const addNewBookBtn = document.querySelector(".add-book");
 const addNewBookForm = document.querySelector(".add-new-book-form");
@@ -93,7 +92,7 @@ addNewBookForm.addEventListener("submit", (event) => {
   addNewBookToLibrary(title, author, noOfPages, hasRead);
   resetAddNewBookForm();
   hideAddNewBookForm();
-  // displayBooks();
+  updateBookCount();
 });
 
 //Make Card for each book
@@ -124,3 +123,10 @@ function makeCardForBook(book) {
 
   card.appendChild(reading_status);
 }
+
+function updateBookCount() {
+  let bookCount = Object.keys(myLibrary).length;
+  // Set the data attribute of the book count span
+  document.querySelector(".book-count-value").textContent = `${bookCount}`;
+}
+updateBookCount();
