@@ -43,3 +43,20 @@ addNewBookToLibrary("The Hobbit 2", "J.R.R. Tolkien", 295, false);
 
 // console.log(theHobbit.info());
 displayBooks();
+
+const addNewBookBtn = document.querySelector(".add-book");
+const addNewBookForm = document.querySelector(".add-new-book-form");
+addNewBookBtn.addEventListener("click", () => {
+  addNewBookForm.classList.add("visible");
+});
+
+//Make the form disappear if user clicks on the empty space.
+
+document.addEventListener("click", (event) => {
+  if (
+    !addNewBookBtn.contains(event.target) &&
+    !addNewBookForm.contains(event.target)
+  ) {
+    addNewBookForm.classList.remove("visible");
+  }
+});
