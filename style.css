@@ -124,7 +124,3 @@ input[type="checkbox"] {
 .card * {
   background-color: inherit;
 }
-
-.book-count-value:after {
-  content: Object.keys(myLibrary) .length;
-}

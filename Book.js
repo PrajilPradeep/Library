@@ -1,8 +1,9 @@
 let myLibrary = [];
-
+let bookId = 0;
 displayBooks();
 
 function Book(title, author, noOfPages, hasRead) {
+  this.bookId = bookId;
   this.title = title;
   this.author = author;
   this.noOfPages = noOfPages;
@@ -11,8 +12,7 @@ function Book(title, author, noOfPages, hasRead) {
 
 // function to add book to the myLibrary array
 function addNewBookToLibrary(title, author, noOfPages, hasRead) {
-  //Removing spaces from the title
-  let objName = title.replace(/\s+/g, "");
+  bookId++;
   objName = new Book(title, author, noOfPages, hasRead);
   myLibrary.push(objName);
   makeCardForBook(objName);
@@ -22,6 +22,8 @@ function addNewBookToLibrary(title, author, noOfPages, hasRead) {
 Book.prototype.info = function () {
   const readingStatus = this.hasRead ? "Read" : "Unread";
   return (
+    "book Id: " +
+    `${this.bookId} ,` +
     this.title +
     " by " +
     this.author +
@@ -99,6 +101,7 @@ addNewBookForm.addEventListener("submit", (event) => {
 function makeCardForBook(book) {
   const card = document.createElement("div");
   card.classList.add("card");
+  card.setAttribute("id", `book-${book.bookId}`);
 
   const title = document.createElement("h2");
   title.textContent = book.title;
