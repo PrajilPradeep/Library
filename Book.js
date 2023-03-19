@@ -125,6 +125,12 @@ function makeCardForBook(book) {
   reading_status.textContent = `Status: ${readStatus}`;
 
   card.appendChild(reading_status);
+
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("delete-button", "button");
+  deleteButton.textContent = "Delete";
+  deleteButton.setAttribute("id", `${book.bookId}`);
+  card.appendChild(deleteButton);
 }
 
 function updateBookCount() {
@@ -133,3 +139,22 @@ function updateBookCount() {
   document.querySelector(".book-count-value").textContent = `${bookCount}`;
 }
 updateBookCount();
+
+const deleteButtons = Array.from(document.querySelectorAll(".delete-button"));
+deleteButtons.map((e) => {
+  e.addEventListener("click", () => removeBook(e.id));
+});
+
+function removeBook(id) {
+  //converting id to number
+  id = parseInt(id);
+  //removing fromt the myLibrary array
+  myLibrary = myLibrary.filter((book) => book.bookId !== id);
+
+  //removing card from screen
+  const bookCard = document.getElementById(`book-${id}`);
+  bookCard.remove();
+
+  //update book count
+  updateBookCount();
+}

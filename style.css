@@ -124,3 +124,7 @@ input[type="checkbox"] {
 .card * {
   background-color: inherit;
 }
+
+.delete-button {
+  background-color: red;
+}
