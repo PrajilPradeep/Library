@@ -10,6 +10,20 @@ function Book(title, author, noOfPages, hasRead) {
   this.hasRead = hasRead;
 }
 
+//function to toggle read status
+
+Book.prototype.toggleReadStatus = (book) => {
+  book.hasRead = !book.hasRead;
+  //update reading status on card
+  const bookCard = document.getElementById(`book-${book.bookId}`);
+  const readingStausLabel = bookCard.querySelector(".reading-status");
+  readingStausLabel.textContent = `Status: ${book.hasRead ? "Read" : "Unread"}`;
+  const readingStatusButtonLable = bookCard.querySelector(
+    ".reading-status-toggle-button"
+  );
+  readingStatusButtonLable.textContent = `${book.hasRead ? "Unread" : "Read"}`;
+};
+
 // function to add book to the myLibrary array
 function addNewBookToLibrary(title, author, noOfPages, hasRead) {
   bookId++;
@@ -123,6 +137,7 @@ function makeCardForBook(book) {
   const readStatus = book.hasRead ? "Read" : "Unread";
   const reading_status = document.createElement("p");
   reading_status.textContent = `Status: ${readStatus}`;
+  reading_status.classList.add("reading-status");
 
   card.appendChild(reading_status);
 
@@ -131,6 +146,16 @@ function makeCardForBook(book) {
   deleteButton.textContent = "Delete";
   deleteButton.setAttribute("id", `${book.bookId}`);
   card.appendChild(deleteButton);
+
+  const readStatusUpdateButton = document.createElement("button");
+  readStatusUpdateButton.classList.add(
+    "reading-status-toggle-button",
+    "button"
+  );
+  const readStatusButtonLabel = book.hasRead ? "Unread" : "Read";
+  readStatusUpdateButton.textContent = `${readStatusButtonLabel}`;
+  readStatusUpdateButton.setAttribute("book-id", `${book.bookId}`);
+  card.appendChild(readStatusUpdateButton);
 }
 
 function updateBookCount() {
@@ -158,3 +183,15 @@ function removeBook(id) {
   //update book count
   updateBookCount();
 }
+
+const readStatusUpdateButtons = Array.from(
+  document.querySelectorAll(".reading-status-toggle-button")
+);
+readStatusUpdateButtons.map((button) => {
+  button.addEventListener("click", () => {
+    const selectedBookId = parseInt(button.getAttribute("book-id"));
+    const book = myLibrary.find((book) => book.bookId === selectedBookId);
+    //updating Reading Status
+    book.toggleReadStatus(book);
+  });
+});
