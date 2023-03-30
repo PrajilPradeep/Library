@@ -52,7 +52,7 @@ Book.prototype.info = function () {
 const bookInfoElement = document.querySelector(".book-info");
 
 function displayBooks() {
-  myLibrary.map((book) => makeCardForBook(book));
+  myLibrary.forEach((book) => makeCardForBook(book));
 }
 
 addNewBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, false);
